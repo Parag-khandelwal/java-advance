@@ -1,5 +1,18 @@
 package multithreading;
-// CONCURRENCY MEANS RUNNING MULTIPLE TASKS PARALLELY, AND IT IS ACHIEVED BY THREADS(lightweight) AND PROCESSES(heavy)
+// CONCURRENCY MEANS RUNNING MULTIPLE TASKS PARALLELY, AND IT IS ACHIEVED BY THREADS(lightweight) AND PROCESSES (heavy)
+
+class Thread1 extends Thread{
+
+    @Override
+    public void run(){
+        try {
+            System.out.println("Thread 1 is running!");
+        } catch (Exception e) {
+            System.out.println("Exception occured\n" + e);
+        }
+    }
+}
+
 
 
 public class ConcurrencyAndThreads {
@@ -7,14 +20,14 @@ public class ConcurrencyAndThreads {
 
         for (int i = 0; i < 10; i++) {
 
-            Thread t1 = new Thread();
-            t1.getId();
+            // Whenever Thread finds ideal CPU it executes so the sequence of execution is unpredictable
+            
+            Thread1 t1 = new Thread1();
             t1.start();
-    
-            Thread t2 = new Thread(new Thread());
-            t2.getId();
+            
+            Thread t2 = new Thread(new Thread2());
             t2.start();
-
+            
         }
     }
 }
